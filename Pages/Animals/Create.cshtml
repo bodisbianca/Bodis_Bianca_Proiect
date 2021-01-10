@@ -1,0 +1,101 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Animals.CreateModel
+
+@{
+    ViewData["Title"] = "Animal nou";
+}
+
+<h1>Adăugare animal nou</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Animal.Name" class="control-label"></label>
+                <input asp-for="Animal.Name" class="form-control" />
+                <span asp-validation-for="Animal.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Breed" class="control-label"></label>
+                <input asp-for="Animal.Breed" class="form-control" />
+                <span asp-validation-for="Animal.Breed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Gender" class="control-label"></label> <br />
+                <input asp-for="Animal.Gender" type="radio" value="Feminin" />Feminin <br />
+                <input asp-for="Animal.Gender" type="radio" value="Masculin" />Masculin <br />
+                <span asp-validation-for="Animal.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Age" class="control-label"></label>
+                <input asp-for="Animal.Age" class="form-control" />
+                <span asp-validation-for="Animal.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Details" class="control-label"></label>
+                <input asp-for="Animal.Details" class="form-control" />
+                <span asp-validation-for="Animal.Details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.ArrivalDate" class="control-label"></label>
+                <input asp-for="Animal.ArrivalDate" class="form-control" />
+                <span asp-validation-for="Animal.ArrivalDate" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Animal.SpecieID" class="control-label">Specie</label>
+                <select asp-for="Animal.SpecieID" class="form-control" asp-items="ViewBag.SpecieID">
+                </select>
+                <span asp-validation-for="Animal.SpecieID" class="text-danger"></span>
+            </div>
+            <br />
+            <div>
+                <label asp-for="Animal.FosterID" class="control-label">Îngrijitor</label>
+                <select asp-for="Animal.FosterID" class="form-control" asp-items="ViewBag.FosterID">
+                </select>
+                <span asp-validation-for="Animal.FosterID" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <thead>Personalitate</thead>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                foreach (var cat in Model.AssignedTraitDataList)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedTraits"
+                                               value="@cat.TraitID"
+                                               @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                                         @: @cat.Name
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <input type="submit" value="Finalizare" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Înapoi la lista de animale</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

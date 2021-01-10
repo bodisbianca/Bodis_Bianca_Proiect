@@ -1,0 +1,42 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Caregivers.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalii îngrijitor";
+}
+<br />
+<h1>Detalii îngrijitor - @Html.DisplayFor(model => model.Foster.FosterName)</h1>
+<br />
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Foster.Telefon)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Foster.Telefon)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Foster.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Foster.Email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Foster.Vechime)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Foster.Vechime)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Foster.DetaliiFoster)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Foster.DetaliiFoster)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Foster.ID">Editare</a> |
+    <a asp-page="./Index">Înapoi la lista de îngrijitori</a>
+</div>

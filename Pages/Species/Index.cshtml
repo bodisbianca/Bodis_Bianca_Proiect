@@ -1,0 +1,48 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Species.IndexModel
+
+@{
+    ViewData["Title"] = "Specii de animale";
+}
+<br />
+<h1>Specii de animale disponibile</h1>
+<br />
+<p>
+    <a asp-page="Create">Adăugare specie nouă</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Specie[0].SpecieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specie[0].DifIntretinere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specie[0].VarstaMaxima)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Specie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecieName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DifIntretinere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VarstaMaxima)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Ștergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

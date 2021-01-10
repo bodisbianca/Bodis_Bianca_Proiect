@@ -1,0 +1,90 @@
+﻿@page  "/{id:int?}"
+@model Bodis_Bianca_Proiect.Pages.Animals.IndexModel
+
+@{
+    ViewData["Title"] = "Animale";
+}
+<br />
+<h1>Animale disponibile pentru adopție</h1>
+<br />
+<p>
+    <a asp-page="Create">Adăugare animal nou</a>
+</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Breed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].ArrivalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Specie.SpecieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Foster.FosterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].AnimalTraits)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AnimalD.Animals)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.AnimalID)
+            {
+                selectedRow = "table-success";
+            }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalDate)
+            </td>
+            <td>
+                <a style="color:black" asp-page="/Species/Details" asp-route-id="@item.Specie.ID"> @Html.DisplayFor(modelItem => item.Specie.SpecieName)</a>
+            </td>
+            <td>
+                <a style="color:black" asp-page="/Caregivers/Details" asp-route-id="@item.Foster.ID">@Html.DisplayFor(modelItem => item.Foster.FosterName)</a>
+            </td>
+            <td>
+                @{
+                    foreach (var category in item.AnimalTraits)
+                    {
+                       @: @category.Trait.TraitName <br />
+                    }
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Ștergere</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

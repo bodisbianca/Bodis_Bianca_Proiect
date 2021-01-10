@@ -1,0 +1,45 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Species.DeleteModel
+
+@{
+    ViewData["Title"] = "Ștergere specie";
+}
+
+<h1>Ștergere specie</h1>
+
+<h3>Sigur ștergeți specia din listă?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Specie.SpecieName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Specie.SpecieName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Specie.DifIntretinere)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Specie.DifIntretinere)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Specie.VarstaMaxima)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Specie.VarstaMaxima)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Specie.DetaliiSpecie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Specie.DetaliiSpecie)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Specie.ID" />
+        <input type="submit" value="Ștergere" class="btn btn-danger" /> |
+        <a asp-page="./Index">Înapoi la lista de specii</a>
+    </form>
+</div>

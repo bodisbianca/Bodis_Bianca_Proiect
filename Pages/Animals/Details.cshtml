@@ -1,0 +1,48 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Animals.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalii animal";
+}
+<br />
+<h1>Detalii animal - @Html.DisplayFor(model => model.Animal.Name)</h1>
+<br />
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Animal.Breed)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Animal.Breed)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Animal.Gender)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Animal.Gender)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Animal.Age)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Animal.Age)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Animal.Details)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Animal.Details)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Animal.ArrivalDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Animal.ArrivalDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Animal.ID">Editare</a> |
+    <a asp-page="./Index">Înapoi la lista de animale</a>
+</div>

@@ -1,0 +1,45 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Traits.DeleteModel
+
+@{
+    ViewData["Title"] = "Ștergere trăsătură";
+}
+
+<h1>Ștergere trăsătură</h1>
+
+<h3>Sigur ștergeți această trăsătură din listă?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trait.TraitName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trait.TraitName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trait.Avantaje)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trait.Avantaje)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trait.Dezavantaje)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trait.Dezavantaje)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trait.TraitDetails)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trait.TraitDetails)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Trait.ID" />
+        <input type="submit" value="Ștergere" class="btn btn-danger" /> |
+        <a asp-page="./Index">Înapoi la lista de trăsături</a>
+    </form>
+</div>

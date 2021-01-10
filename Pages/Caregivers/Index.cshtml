@@ -1,0 +1,55 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Caregivers.IndexModel
+
+@{
+    ViewData["Title"] = "Îngrijitori";
+}
+<br />
+<h1>Îngrijitori de animale</h1>
+<br />
+<p>
+    <a asp-page="Create">Adăugare îngrijitor nou</a>
+</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Foster[0].FosterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foster[0].Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foster[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foster[0].Vechime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Foster) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FosterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vechime)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Ștergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

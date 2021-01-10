@@ -1,0 +1,54 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Caregivers.EditModel
+
+@{
+    ViewData["Title"] = "Editare date îngrijitor";
+}
+
+<h1>Editare date îngrijitor</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Foster.ID" />
+            <div class="form-group">
+                <label asp-for="Foster.FosterName" class="control-label"></label>
+                <input asp-for="Foster.FosterName" class="form-control" />
+                <span asp-validation-for="Foster.FosterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foster.Telefon" class="control-label"></label>
+                <input asp-for="Foster.Telefon" class="form-control" />
+                <span asp-validation-for="Foster.Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foster.Email" class="control-label"></label>
+                <input asp-for="Foster.Email" class="form-control" />
+                <span asp-validation-for="Foster.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foster.Vechime" class="control-label"></label>
+                <input asp-for="Foster.Vechime" class="form-control" />
+                <span asp-validation-for="Foster.Vechime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foster.DetaliiFoster" class="control-label"></label>
+                <input asp-for="Foster.DetaliiFoster" class="form-control" />
+                <span asp-validation-for="Foster.DetaliiFoster" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvare" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Înapoi la lista de îngrijitori</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

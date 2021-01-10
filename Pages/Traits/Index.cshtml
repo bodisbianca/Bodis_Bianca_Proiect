@@ -1,0 +1,49 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Traits.IndexModel
+
+@{
+    ViewData["Title"] = "Trăsături de caracter";
+}
+<br />
+<h1>Trăsături de caracter</h1>
+<br />
+<p>
+    <a asp-page="Create">Adaugă o nouă trăsătură</a>
+</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Trait[0].TraitName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trait[0].Avantaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trait[0].Dezavantaje)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Trait) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TraitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avantaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dezavantaje)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editare</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Ștergere</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

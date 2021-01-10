@@ -1,0 +1,37 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Traits.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalii trăsătură";
+}
+<br />
+<h1>Detalii trăsătură - @Html.DisplayFor(model => model.Trait.TraitName)</h1>
+<br />
+<div>
+    <hr />
+    <dl class="row">
+        <dt></dt>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Trait.Avantaje)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Trait.Avantaje)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Trait.Dezavantaje)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Trait.Dezavantaje)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Trait.TraitDetails)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Trait.TraitDetails)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Trait.ID">Editare</a> |
+    <a asp-page="./Index">Înapoi la lista de trăsături</a>
+</div>

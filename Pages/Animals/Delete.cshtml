@@ -1,0 +1,57 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Animals.DeleteModel
+
+@{
+    ViewData["Title"] = "Ștergere animal";
+}
+
+<h1>Ștergere animal</h1>
+
+<h3>Sigur ștergeți animalul din listă?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.Breed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.Breed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.Details)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.Details)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.ArrivalDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.ArrivalDate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Animal.ID" />
+        <input type="submit" value="Ștergere" class="btn btn-danger" /> |
+        <a asp-page="./Index">Înapoi la lista de animale</a>
+    </form>
+</div>

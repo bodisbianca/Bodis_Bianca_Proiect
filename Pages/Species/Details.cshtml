@@ -1,0 +1,37 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Species.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalii specie";
+}
+<br />
+<h1>Detalii specie - @Html.DisplayFor(model => model.Specie.SpecieName) </h1>
+<br />
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Specie.DifIntretinere)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Specie.DifIntretinere)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Specie.VarstaMaxima)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Specie.VarstaMaxima)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Specie.DetaliiSpecie)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Specie.DetaliiSpecie)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Specie.ID">Editare</a> |
+    <a asp-page="./Index">Înapoi la lista de specii</a>
+</div>

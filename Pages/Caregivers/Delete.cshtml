@@ -1,0 +1,51 @@
+﻿@page
+@model Bodis_Bianca_Proiect.Pages.Caregivers.DeleteModel
+
+@{
+    ViewData["Title"] = "Ștergere îngrijitor";
+}
+
+<h1>Ștergere îngrijitor</h1>
+
+<h3>Sigur ștergeți îngrijitorul din listă?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Foster.FosterName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Foster.FosterName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Foster.Telefon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Foster.Telefon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Foster.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Foster.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Foster.Vechime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Foster.Vechime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Foster.DetaliiFoster)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Foster.DetaliiFoster)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Foster.ID" />
+        <input type="submit" value="Ștergere" class="btn btn-danger" /> |
+        <a asp-page="./Index">Înapoi la lista de îngrijitori</a>
+    </form>
+</div>
